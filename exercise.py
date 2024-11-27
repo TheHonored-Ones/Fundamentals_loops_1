@@ -2,25 +2,88 @@ def sum_with_while(start, end):
     """
     Calculate the sum of all numbers between start and end (inclusive) using a while loop.
     """
-    pass
+    list_middle = [index for index in range(start, (end + 1))]
+    
+    sum_all = 0
+    running_sum = 0
+    for j in range((start - 1),(end)):
+        while j < len(list_middle):
+            next_i = list_middle.index(j + 1)
+            running_sum += list_middle[next_i]
+            break
+        
+    sum_all = running_sum
+    return sum_all
+        
+        
 
 def count_vowels_in_string(input_string):
     """
     Count the number of vowels in a given string using a for loop.
     """
-    pass
+    vowels = ['a','e','i','o','u']
+    count = 0
+    
+    for char in vowels:
+        for j in input_string:
+            if char == j.lower():
+                count += 1
+    
+    return count
+        
 
 def filter_numbers(numbers):
     """
     Filter a list of numbers based on specific conditions using a for loop and conditionals.
     """
-    pass
+    pos_list = []
+    even_list = []
+    odd_list = []
+    neg_list = []
+    
+    storage = {}
+    
+    for n in numbers:
+        if n % 2 == 0 or n == 0:
+            even_list.append(n)
+        if n % 2 != 0:
+            odd_list.append(n)
+        if n < 0:
+            neg_list.append(n)
+        if n > 0:
+            pos_list.append(n)
+            
+    storage['positive'] = pos_list
+    storage['negative'] = neg_list
+    storage['even'] = even_list
+    storage['odd'] = odd_list
+    
+    print(storage)
+    return storage
 
 def fibonacci_sequence(n):
     """
     Generate Fibonacci sequence up to n terms using a while loop.
     """
-    pass
+    list_fibo = [index for index in range(n + 1)]
+    print(list_fibo)
+    
+    fibo_list = []
+    running = 0
+    for j in range(len(list_fibo) - 1):
+        while j < len(list_fibo):
+            if list_fibo[j] == 0:
+                fibo_list.append(0)
+                fibo_list.append(1)
+            else:
+                last_item = list_fibo.index(j - 1)
+                running += last_item
+                fibo_list.append(running)
+            
+    print(running)
+    print(fibo_list)
+    return fibo_list
+    
 
 def pascals_triangle(rows):
     """
@@ -71,4 +134,18 @@ def longest_common_subsequence(str1, str2):
     pass
 
 if __name__ == "__main__":
-    pass
+    print("Testing sum_with_while:")
+    sum_ans = sum_with_while(-3, 3)
+    print(f"Sum: {sum_ans}\n")
+    
+    print("\nTesting count_vowels_in_a_string:")
+    vowel_count = count_vowels_in_string('HELLO')
+    print(f"Vowel count: {vowel_count}")
+    
+    print("\nTesting filter_numbers:")
+    filtered = filter_numbers([1,-1,2,-2,0])
+    print(f"Filtered: {filtered}")
+    
+    print("\nTesting fibonacci_sequence:")
+    fibo = fibonacci_sequence(5)
+    print(f"Filtered: {fibo}")
