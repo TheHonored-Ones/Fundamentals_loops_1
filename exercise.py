@@ -61,35 +61,62 @@ def filter_numbers(numbers):
     print(storage)
     return storage
 
-def fibonacci_sequence(n):
-    """
-    Generate Fibonacci sequence up to n terms using a while loop.
-    """
-    list_fibo = [index for index in range(n + 1)]
-    print(list_fibo)
+# def fibonacci_sequence(n):
+#     """
+#     Generate Fibonacci sequence up to n terms using a while loop.
+#     """
+#     list_fibo = [index for index in range(n + 1)]
+#     print(list_fibo)
     
-    fibo_list = []
-    running = 0
-    for j in range(len(list_fibo) - 1):
-        while j < len(list_fibo):
-            if list_fibo[j] == 0:
-                fibo_list.append(0)
-                fibo_list.append(1)
-            else:
-                last_item = list_fibo.index(j - 1)
-                running += last_item
-                fibo_list.append(running)
+#     fibo_list = []
+#     running = 0
+#     for j in range(len(list_fibo) - 1):
+#         while j < len(list_fibo):
+#             if list_fibo[j] == 0:
+#                 fibo_list.append(0)
+#                 fibo_list.append(1)
+#             else:
+#                 last_item = list_fibo.index(j - 1)
+#                 running += last_item
+#                 fibo_list.append(running)
             
-    print(running)
-    print(fibo_list)
-    return fibo_list
+#     print(running)
+#     print(fibo_list)
+#     return fibo_list
     
 
 def pascals_triangle(rows):
     """
     Generate Pascal's Triangle up to a given number of rows.
     """
-    pass
+    triangle = [1]
+    start_end = 1
+    storage = []
+
+    middle_num = 0
+    
+    for row in range(rows):
+        if row == 0:
+            middle_num += start_end
+            storage.append(start_end)
+            print(storage)
+            storage.append(middle_num)
+            print(storage)
+            triangle.append(storage)
+
+        else:
+            for index in range(rows):
+                middle_num = triangle[-1][index - 1] + triangle[-1][index + 1]
+                storage.append(start_end)
+                storage.append(middle_num)
+                storage.append(start_end)
+
+        
+    print(triangle)
+    return triangle
+
+
+
 
 def tower_of_hanoi(n, source, target, auxiliary):
     """
@@ -107,7 +134,32 @@ def is_palindrome(input_string):
     """
     Check if a given string is a palindrome (ignoring spaces, capitalization, and punctuation).
     """
-    pass
+    # empty_1 = []
+    # empty_2 = []
+
+    # input_string = "A man, a plan, a canal, Panama"
+    # input_string_formatted = input_string.lower()
+    # print(input_string_formatted[::-1])
+    # print(input_string_formatted)
+    
+    # for char in len(list(input_string_formatted)):
+    #     if not input_string_formatted[char].isalpha():
+    #         print(input_string_formatted[char])
+            
+        # empty_1.remove('')
+
+    # for char in input_string_formatted[::-1]:
+    #     empty_2.append(char)
+
+    
+    # print(empty_2)
+
+
+    # if empty_1 == empty_2:
+    #     return True
+    # else:
+    #     return False
+
 
 def generate_permutations(input_string):
     """
@@ -134,18 +186,26 @@ def longest_common_subsequence(str1, str2):
     pass
 
 if __name__ == "__main__":
-    print("Testing sum_with_while:")
-    sum_ans = sum_with_while(-3, 3)
-    print(f"Sum: {sum_ans}\n")
+    # print("Testing sum_with_while:")
+    # sum_ans = sum_with_while(-3, 3)
+    # print(f"Sum: {sum_ans}\n")
     
-    print("\nTesting count_vowels_in_a_string:")
-    vowel_count = count_vowels_in_string('HELLO')
-    print(f"Vowel count: {vowel_count}")
+    # print("\nTesting count_vowels_in_a_string:")
+    # vowel_count = count_vowels_in_string('HELLO')
+    # print(f"Vowel count: {vowel_count}")
     
-    print("\nTesting filter_numbers:")
-    filtered = filter_numbers([1,-1,2,-2,0])
-    print(f"Filtered: {filtered}")
+    # print("\nTesting filter_numbers:")
+    # filtered = filter_numbers([1,-1,2,-2,0])
+    # print(f"Filtered: {filtered}")
     
-    print("\nTesting fibonacci_sequence:")
-    fibo = fibonacci_sequence(5)
-    print(f"Filtered: {fibo}")
+    # print("\nTesting fibonacci_sequence:")
+    # fibo = fibonacci_sequence(5)
+    # print(f"Filtered: {fibo}")
+
+    # print("\nTesting is_palindrome:")
+    # pali = is_palindrome("A man, a plan, a canal, Panama")
+    # print(f"Palindrome: {pali}")
+    
+    print("\nTesting pascals_triangle:")
+    rows_num = pascals_triangle(3)
+    print(f"Pascal's triangle: {rows_num}")

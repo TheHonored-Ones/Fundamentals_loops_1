@@ -28,16 +28,17 @@ class TestExercise(unittest.TestCase):
     #     self.assertEqual(fibonacci_sequence(0), [])
     #     self.assertEqual(fibonacci_sequence(1), [0])
 
-    # def test_pascals_triangle(self):
-    #     self.assertEqual(
-    #         pascals_triangle(4),
-    #         [
-    #             [1],
-    #             [1, 1],
-    #             [1, 2, 1],
-    #             [1, 3, 3, 1]
-    #         ]
-    #     )
+    def test_pascals_triangle(self):
+        self.assertEqual(
+            pascals_triangle(4),
+            [
+                [1],
+                [1, 1],
+                [1, 2, 1],
+                [1, 3, 3, 1]
+            ]
+        )
+        u = [1,1,1,1,2,1,1,3,3,1]
 
     # def test_tower_of_hanoi(self):
     #     self.assertEqual(
@@ -57,9 +58,9 @@ class TestExercise(unittest.TestCase):
     #     self.assertEqual(find_dna_sequence("ACGTACGTGACG", "TAC"), 2)
     #     self.assertEqual(find_dna_sequence("ACGTACGTGACG", "TAG"), -1)
 
-    # def test_is_palindrome(self):
-    #     self.assertTrue(is_palindrome("A man, a plan, a canal, Panama"))
-    #     self.assertFalse(is_palindrome("hello"))
+    def test_is_palindrome(self):
+        self.assertTrue(is_palindrome("A man, a plan, a canal, Panama"))
+        self.assertFalse(is_palindrome("hello"))
 
     # def test_generate_permutations(self):
     #     self.assertEqual(
