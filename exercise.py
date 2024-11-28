@@ -61,28 +61,22 @@ def filter_numbers(numbers):
     print(storage)
     return storage
 
-# def fibonacci_sequence(n):
-#     """
-#     Generate Fibonacci sequence up to n terms using a while loop.
-#     """
-#     list_fibo = [index for index in range(n + 1)]
-#     print(list_fibo)
+def fibonacci_sequence(n):
+    """
+    Generate Fibonacci sequence up to n terms using a while loop.
+    """
     
-#     fibo_list = []
-#     running = 0
-#     for j in range(len(list_fibo) - 1):
-#         while j < len(list_fibo):
-#             if list_fibo[j] == 0:
-#                 fibo_list.append(0)
-#                 fibo_list.append(1)
-#             else:
-#                 last_item = list_fibo.index(j - 1)
-#                 running += last_item
-#                 fibo_list.append(running)
-            
-#     print(running)
-#     print(fibo_list)
-#     return fibo_list
+    fibo_list = []
+    a,b = 0,1
+    count = 0
+    
+    while count < n:
+        fibo_list.append(a)
+        a,b = b, a + b
+        count += 1
+        
+    return fibo_list
+    
     
 
 def pascals_triangle(rows):
@@ -198,9 +192,9 @@ if __name__ == "__main__":
     # filtered = filter_numbers([1,-1,2,-2,0])
     # print(f"Filtered: {filtered}")
     
-    # print("\nTesting fibonacci_sequence:")
-    # fibo = fibonacci_sequence(5)
-    # print(f"Filtered: {fibo}")
+    print("\nTesting fibonacci_sequence:")
+    fibo = fibonacci_sequence(5)
+    print(f"Fibonacci: {fibo}")
 
     # print("\nTesting is_palindrome:")
     # pali = is_palindrome("A man, a plan, a canal, Panama")
